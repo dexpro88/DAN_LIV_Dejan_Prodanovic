@@ -14,8 +14,10 @@ namespace DAN_LIV_Dejan_Prodanovic
             List<Car> cars = new List<Car>();
             LinkedList<Tractor> tractors = new LinkedList<Tractor>();
             HashSet<Truck> trucks = new HashSet<Truck>();
-           
 
+            CreateCars(cars);
+            CreateTractors(tractors);
+            CreateTrucks(trucks);
            
             
 
@@ -37,12 +39,13 @@ namespace DAN_LIV_Dejan_Prodanovic
         {
             Car car = new Car("NS-202-CY", 4, 50, "manual", "Mercedes", 2834871, 20
                , 1000, "B", "petrol", "red", 1234);
+            car.CurrentAmountOfFuel = 40;
 
             cars.Add(car);
 
-            car = new Car("NS-115-CF", 4, 50, "manual", "Audi", 5843871, 20
+            car = new Car("NS-115-CF", 4, 60, "manual", "Audi", 5843871, 20
          , 1200, "B", "petrol", "red", 3212);
-
+            car.CurrentAmountOfFuel = 50;
             cars.Add(car);
         }
 

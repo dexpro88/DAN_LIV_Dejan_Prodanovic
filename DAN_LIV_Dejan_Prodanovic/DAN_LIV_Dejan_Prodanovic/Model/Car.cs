@@ -14,6 +14,7 @@ namespace DAN_LIV_Dejan_Prodanovic.Model
         public string TransmissionType{ get; set; }
         public string Producer { get; set; }
         public int TrafficNumber { get; set; }
+        public int CurrentAmountOfFuel { get; set; }
 
         public Car()
         {
@@ -36,12 +37,18 @@ namespace DAN_LIV_Dejan_Prodanovic.Model
 
         public override void Start()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("{0} je krenuo");
         }
 
         public override void Stop()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("{0} se zaustavio");
+        }
+
+        public void ChangeColor(string color, int trafficNumber)
+        {
+            this.Color = color;
+            this.TrafficNumber = trafficNumber;
         }
     }
 }
