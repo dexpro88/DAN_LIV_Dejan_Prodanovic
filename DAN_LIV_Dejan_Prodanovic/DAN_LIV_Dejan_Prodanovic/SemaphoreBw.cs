@@ -11,7 +11,8 @@ namespace DAN_LIV_Dejan_Prodanovic
     class SemaphoreBw
     {
         public bool raceEnds = false;
-        private BackgroundWorker worker = new BackgroundWorker();
+        public BackgroundWorker worker = new BackgroundWorker();
+        public bool semaphoreOn;
 
         public SemaphoreBw()
         {
@@ -33,8 +34,16 @@ namespace DAN_LIV_Dejan_Prodanovic
         {
             while (!raceEnds)
             {
-                Thread.Sleep(1000);
-                
+                if (semaphoreOn)
+                {
+                    semaphoreOn = false;
+                }
+                else
+                {
+                    semaphoreOn = true;
+                }
+                Thread.Sleep(2000);
+               
 
             }
 

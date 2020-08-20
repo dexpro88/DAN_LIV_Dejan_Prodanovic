@@ -16,6 +16,7 @@ namespace DAN_LIV_Dejan_Prodanovic.Model
         public int TrafficNumber { get; set; }
         public int CurrentAmountOfFuel { get; set; }
         public int AmountCousumedPerSec { get; set; }
+        public bool FinishRace { get; set; }
 
         public Car()
         {

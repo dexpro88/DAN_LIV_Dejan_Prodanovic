@@ -19,18 +19,18 @@ namespace DAN_LIV_Dejan_Prodanovic
 
         }
 
-        public static void CreateCars(List<Car> cars)
+        public static void CreateCars(Dictionary<string,Car> cars)
         {
             Car car = new Car("NS-202-CY", 4, 50, "manual", "Mercedes", 2834871, 20
                , 1000, "B", "petrol", "red", 1234, 2);
             car.CurrentAmountOfFuel = 40;
 
-            cars.Add(car);
+            cars.Add(car.RegistrationNumber,car);
 
             car = new Car("NS-115-CF", 4, 60, "manual", "Audi", 5843871, 20
          , 1200, "B", "petrol", "red", 3212, 2);
             car.CurrentAmountOfFuel = 50;
-            cars.Add(car);
+            cars.Add(car.RegistrationNumber,car);
         }
 
         public static void CreateTrucks(HashSet<Truck> trucks)
