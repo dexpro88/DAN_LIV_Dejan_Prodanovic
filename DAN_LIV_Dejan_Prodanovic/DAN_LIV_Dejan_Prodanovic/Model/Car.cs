@@ -15,6 +15,7 @@ namespace DAN_LIV_Dejan_Prodanovic.Model
         public string Producer { get; set; }
         public int TrafficNumber { get; set; }
         public int CurrentAmountOfFuel { get; set; }
+        public int AmountCousumedPerSec { get; set; }
 
         public Car()
         {
@@ -24,7 +25,8 @@ namespace DAN_LIV_Dejan_Prodanovic.Model
         public Car(string registrationNumber, int numberOfDoors,
             int tankVolume, string transmissionType, string producer,
             int trafficNumber, double engineVolume, int weight,
-            string category, string engineType, string color, int engineNumber)
+            string category, string engineType, string color, int engineNumber,
+            int AmountCousumedPerSec)
             :base( engineVolume,  weight,  category,  engineType,  color,  engineNumber)
         {
             RegistrationNumber = registrationNumber;
@@ -33,6 +35,7 @@ namespace DAN_LIV_Dejan_Prodanovic.Model
             TransmissionType = transmissionType;
             Producer = producer;
             TrafficNumber = trafficNumber;
+            this.AmountCousumedPerSec = AmountCousumedPerSec;
         }
 
         public override void Start()
