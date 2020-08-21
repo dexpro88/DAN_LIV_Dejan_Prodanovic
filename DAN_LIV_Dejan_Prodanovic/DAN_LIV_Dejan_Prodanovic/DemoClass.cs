@@ -9,6 +9,10 @@ namespace DAN_LIV_Dejan_Prodanovic
 {
     class DemoClass
     {
+       /// <summary>
+       /// we add two tractors in tractor collection
+       /// </summary>
+       /// <param name="tractors"></param>
         public static void CreateTractors(LinkedList<Tractor> tractors)
         {
             Tractor tractor = new Tractor(1.5, 2, "petrol", 40, 3000, "F", "CDI", "red", 98783);
@@ -19,6 +23,10 @@ namespace DAN_LIV_Dejan_Prodanovic
 
         }
 
+        /// <summary>
+        /// we add two cars in car collection
+        /// </summary>
+        /// <param name="tractors"></param>
         public static void CreateCars(Dictionary<string,Car> cars)
         {
             Car car = new Car("NS-202-CY", 4, 50, "manual", "Mercedes", 2834871, 20
@@ -32,7 +40,10 @@ namespace DAN_LIV_Dejan_Prodanovic
             car.CurrentAmountOfFuel = 50;
             cars.Add(car.RegistrationNumber,car);
         }
-
+        /// <summary>
+        /// we add two trucks in truck collection
+        /// </summary>
+        /// <param name="tractors"></param>
         public static void CreateTrucks(HashSet<Truck> trucks)
         {
             Truck truck = new Truck(10000, 5, 2, 80, 15000, "C", "CDTI", "gray", 43231);
