@@ -52,6 +52,7 @@ namespace DAN_LIV_Dejan_Prodanovic
 
 
                         carToDeleteKey = car.Key;
+                        Program.counter++;
                     }
                     
                 }

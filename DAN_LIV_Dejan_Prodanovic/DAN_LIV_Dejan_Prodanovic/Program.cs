@@ -14,6 +14,11 @@ namespace DAN_LIV_Dejan_Prodanovic
         static BW bworker;
         static SemaphoreBw semaphore = new SemaphoreBw();
         static object gasStation = new object();
+        static object   endRace = new object();
+
+        static bool weHaveWiner;
+        static Car winner;
+        public static int counter = 0;
 
         static void Main(string[] args)
         {
@@ -57,6 +62,12 @@ namespace DAN_LIV_Dejan_Prodanovic
             bworker = new BW(cars, threads);
             bworker.DoStuff();
             semaphore.DoStuff();
+
+            Thread endThread = new Thread(PrintWinner);
+            endThread.Start();
+
+
+
             Console.ReadLine();
         }
 
@@ -90,8 +101,44 @@ namespace DAN_LIV_Dejan_Prodanovic
             }
 
             Thread.Sleep(7000);
+
+            if (!weHaveWiner)
+            {
+                if (car.Color.Equals("red"))
+                {
+                 
+                    winner = car;
+                    weHaveWiner = true;
+                   
+                   
+                }
+             
+            }
             car.FinishRace = true;
-            Console.WriteLine("{0} finish race",Thread.CurrentThread.Name);
+
+            Console.WriteLine("{0} finish race", Thread.CurrentThread.Name);
+
+            counter++;
+            if (counter==3)
+            {
+                semaphore.raceEnds = true;
+                lock (endRace)
+                {
+                    Monitor.Pulse(endRace);
+                }
+            }
+            
+           
+        }
+
+        static void PrintWinner()
+        {
+            lock (endRace)
+            {
+                Monitor.Wait(endRace);
+                Console.WriteLine("\nThe winer is: {0} {1}", winner.Color, winner.Producer);
+            }
+           
         }
     }
 }

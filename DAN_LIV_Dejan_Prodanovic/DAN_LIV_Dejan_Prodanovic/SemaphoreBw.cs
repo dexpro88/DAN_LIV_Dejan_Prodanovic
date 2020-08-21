@@ -36,11 +36,15 @@ namespace DAN_LIV_Dejan_Prodanovic
             {
                 if (semaphoreOn)
                 {
+                    Console.WriteLine("Semaphore Light is green");
                     semaphoreOn = false;
+                    
                 }
                 else
                 {
+                    Console.WriteLine("Semaphore Light is red");
                     semaphoreOn = true;
+                  
                 }
                 Thread.Sleep(2000);
                
