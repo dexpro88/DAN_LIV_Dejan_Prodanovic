@@ -36,9 +36,10 @@ namespace DAN_LIV_Dejan_Prodanovic
                , 1000, "B", "petrol", "orange", 3432,3);
 
             orangeGolf.CurrentAmountOfFuel = 35;
-            Thread.Sleep(5000);
+            StartRaceCounter();
 
-           
+
+
 
             Console.WriteLine("Cars come to the start\n");
             foreach (var car in cars)
@@ -157,6 +158,17 @@ namespace DAN_LIV_Dejan_Prodanovic
                
             }
            
+        }
+        /// <summary>
+        /// simulates counting for race start
+        /// </summary>
+        private static void StartRaceCounter()
+        {
+            for (int i = 5; i >= 1; i--)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine($"{i}");
+            }
         }
     }
 }
