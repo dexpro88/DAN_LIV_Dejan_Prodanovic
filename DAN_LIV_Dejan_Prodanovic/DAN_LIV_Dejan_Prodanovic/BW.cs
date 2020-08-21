@@ -35,6 +35,13 @@ namespace DAN_LIV_Dejan_Prodanovic
              
         }
 
+        /// <summary>
+        /// decrements the amount of fuel in every car every secon
+        /// checks if the  car tankvolume is empty
+        /// in case it is it aborts thread that represents that car
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DoWork(object sender, DoWorkEventArgs e)
         {
             while (!raceEnds)
@@ -78,20 +85,12 @@ namespace DAN_LIV_Dejan_Prodanovic
             
 
         }
-  
 
-        private void PrintExecute()
-        {
-            
-                                         
-                if (!worker.IsBusy)
-                {
-                    
-                    DoStuff();
-                }
-                      
-        }
 
+
+        /// <summary>
+        /// starts Background worker
+        /// </summary>
         public void DoStuff()
         {         
             worker.RunWorkerAsync();

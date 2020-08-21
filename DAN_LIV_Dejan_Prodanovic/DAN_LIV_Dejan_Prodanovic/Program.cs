@@ -71,13 +71,18 @@ namespace DAN_LIV_Dejan_Prodanovic
             Console.ReadLine();
         }
 
-      
+      /// <summary>
+      /// Method runned by threads that represent cars
+      /// it simulates the race
+      /// </summary>
+      /// <param name="car"></param>
         static void Race(Car car)
         {
             Console.WriteLine("{0} started",Thread.CurrentThread.Name);
 
             Thread.Sleep(10000);
 
+            //cars came to the semaphore we check the current state
             if (semaphore.semaphoreOn)
             {
                 Console.WriteLine("{0} waits on semaphore", Thread.CurrentThread.Name);
@@ -90,6 +95,7 @@ namespace DAN_LIV_Dejan_Prodanovic
 
             Thread.Sleep(3000);
 
+            //we check the ammount of gas in car and we tank it in case if it is less than 15
             if (car.CurrentAmountOfFuel < 15)
             {
                 lock (gasStation)
@@ -102,6 +108,7 @@ namespace DAN_LIV_Dejan_Prodanovic
 
             Thread.Sleep(7000);
 
+            //car finished race we check if he is the winner
             if (!weHaveWiner)
             {
                 if (car.Color.Equals("red"))
@@ -118,6 +125,7 @@ namespace DAN_LIV_Dejan_Prodanovic
 
             Console.WriteLine("{0} finish race", Thread.CurrentThread.Name);
 
+            //we check if all cares finished race (or run out of fuel)
             counter++;
             if (counter==3)
             {
@@ -130,13 +138,23 @@ namespace DAN_LIV_Dejan_Prodanovic
             
            
         }
-
+        /// <summary>
+        /// prints who the winner of the race is
+        /// </summary>
         static void PrintWinner()
         {
             lock (endRace)
             {
                 Monitor.Wait(endRace);
-                Console.WriteLine("\nThe winer is: {0} {1}", winner.Color, winner.Producer);
+                if (winner!=null)
+                {
+                    Console.WriteLine("\nThe winner is: {0} {1}", winner.Color, winner.Producer);
+                }
+                else
+                {
+                    Console.WriteLine("\nThe race has no winner");
+                }
+               
             }
            
         }

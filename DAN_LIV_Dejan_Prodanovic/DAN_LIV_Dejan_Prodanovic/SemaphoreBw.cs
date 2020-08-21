@@ -30,6 +30,11 @@ namespace DAN_LIV_Dejan_Prodanovic
 
         }
 
+        /// <summary>
+        /// changes to light on semaphore and prints current state in console
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DoWork(object sender, DoWorkEventArgs e)
         {
             while (!raceEnds)
@@ -66,18 +71,10 @@ namespace DAN_LIV_Dejan_Prodanovic
         }
 
 
-        private void PrintExecute()
-        {
-
-
-            if (!worker.IsBusy)
-            {
-
-                DoStuff();
-            }
-
-        }
-
+       
+        /// <summary>
+        /// starts Background worker
+        /// </summary>
         public void DoStuff()
         {
             worker.RunWorkerAsync();
